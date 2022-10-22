@@ -1,0 +1,26 @@
+const baseUrl = process.env.base_api_url
+const bonusUrl = `${baseUrl}bonus`
+
+export const createBonus = async (newBonus)=>{
+    try{
+        await fetch(bonusUrl,{
+            method:'POST',
+            headers:{
+                "Content-Type":"application/json"
+            },
+            body : JSON.stringify(newBonus)
+        })
+    }catch(error){
+        console.log(error)
+    }
+  }
+
+export const getBonus = async()=>{
+    try{
+        const res = await fetch(bonusUrl)
+        const data = await res.json()
+        return data 
+    }catch(error){
+        console.log(error)
+    }
+}
