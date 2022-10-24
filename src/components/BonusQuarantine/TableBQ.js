@@ -33,7 +33,7 @@ const TableBQ = (props) => {
     
     const renderedBonus = Object.values(filterData()).map((item,index) => {
         return (
-            <tr>
+            <tr key={item._id}>
                 <th scope="row">{index+1}</th>
                 <td>{item._idUser.firstname}</td>
                 <td>{item._idUser.lastname}</td>

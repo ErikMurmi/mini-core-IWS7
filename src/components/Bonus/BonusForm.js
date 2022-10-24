@@ -35,13 +35,13 @@ const DepartmentForm = (props) => {
 
     const selectChooseOption = Object.values(props.users).map((item) => {
         return (
-            <option value={item._id} name={item.department} id={item.department} >{item.firstname}</option>
+            <option key={item._id} value={item._id} name={item.department} id={item.department} >{item.firstname}</option>
         )
     })
 
     const selectChooseOptionReasonBonus = Object.values(optionsReazonBonus).map(item => {
         return (
-            <option value={item.label} >{item.label}</option>
+            <option key={item.label} value={item.label} >{item.label}</option>
         )
     })
 

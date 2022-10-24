@@ -30,7 +30,7 @@ const UserForm = (props) => {
 
     const selectChooseOption = Object.values(options).map( item => {
         return (
-            <option value={item.label}>{item.label}</option>
+            <option key={item.label} value={item.label}>{item.label}</option>
         )
     })
 
