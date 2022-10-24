@@ -1,4 +1,4 @@
-const baseUrl = 'http://localhost:3000/api/'
+const baseUrl = 'https://emminicoreiw7.vercel.app/api/'
 
 export const createUser = async (newUser)=>{
     const usersUrl = `${baseUrl}users`
