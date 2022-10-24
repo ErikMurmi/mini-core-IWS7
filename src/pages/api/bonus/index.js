@@ -12,20 +12,22 @@ export default async function handler(req,res){
   switch(method){
     case "GET":
       try{
-        const bonus = await Bonus.find()
+        const bonus = await Bonus.find({}).populate('_idUser');
         if(!bonus)
             return res.status(404).send({message:'Bonus not found'})
-        const response = await Bonus.findOne({_id : bonus.id}).populate('_idUser')
-        return res.status(200).send(response)
+        return res.status(200).send(bonus)
       }catch(error){
         return res.status(500).json({error: error.message})
       }
     case "POST":
       try{
-        console.log(body)
-        const newBonus = new Bonus(body)
-        const savedBonus = await newBonus.save()
-        return res.status(201).json(savedBonus)
+        const bonus = new Bonus(req.body);
+        await bonus.save();
+        if(!bonus)
+          return res.status(404).send({message : 'Bonus not created'})
+        const reponse = await Bonus.findOne({ _id : bonus._id }).populate('_idUser')
+        console.log( reponse )
+        return res.send( reponse );
       }catch(error){
         return res.status(500).json({error: error.message})
       }

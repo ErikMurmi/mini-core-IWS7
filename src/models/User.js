@@ -1,4 +1,3 @@
-
 import { Schema,model,models } from "mongoose";
 const UserSchema = new Schema({
     firstname : {
@@ -9,7 +8,7 @@ const UserSchema = new Schema({
         type : String, 
         required : true,
     },
-    deparment : {
+    department : {
         type : String,
         required : true
     }

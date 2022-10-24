@@ -1,7 +1,8 @@
-const baseUrl = process.env.base_api_url
-const bonusUrl = `${baseUrl}bonus`
+const baseUrl = 'http://localhost:3000/api/'
+
 
 export const createBonus = async (newBonus)=>{
+    const bonusUrl = `${baseUrl}bonus`
     try{
         await fetch(bonusUrl,{
             method:'POST',
@@ -16,6 +17,7 @@ export const createBonus = async (newBonus)=>{
   }
 
 export const getBonus = async()=>{
+    const bonusUrl = `${baseUrl}bonus`
     try{
         const res = await fetch(bonusUrl)
         const data = await res.json()
